@@ -1,8 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-// Theme toggle
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-//making heading dynamic
+  //making heading dynamic
 function typeWriter(){
   const el=document.getElementById("change");
   const text=el.textContent;
@@ -22,6 +19,9 @@ else{
 start();}
 typeWriter();
 
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 function setTheme(dark) {
   if (dark) {
     body.classList.add('dark');
