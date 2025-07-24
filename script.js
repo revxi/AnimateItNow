@@ -8,8 +8,19 @@ function toggleFAQ(element) {
   document.querySelectorAll(".faq-item.active").forEach((item) => {
     if (item !== faqItem) {
       item.classList.remove("active")
-    }
-  })
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add('dark');
+          themeToggle.textContent = '☀️';
+          themeToggle.setAttribute('aria-pressed', 'true');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          body.classList.remove('dark');
+          themeToggle.textContent = '🌙';
+          themeToggle.setAttribute('aria-pressed', 'false');
+          localStorage.setItem('theme', 'light');
+        }
+      })
 
   // Toggle current item
   faqItem.classList.toggle("active", !isActive)
@@ -50,6 +61,9 @@ function enableSnakeCursor() {
 
   let mouseX = window.innerWidth / 2
   let mouseY = window.innerHeight / 2
+
+  const savedTheme = localStorage.getItem('theme');
+  setTheme(savedTheme === 'dark');
 
   // Store event listener reference in a global variable
   currentMousemoveListener = (e) => {
@@ -245,6 +259,45 @@ window.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("cursorEnabled", "false")
       }
     })
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  if (!isMobile) {
+
+    const snakeContainer = document.createElement('div');
+    snakeContainer.id = 'cursor-snake';
+    document.body.appendChild(snakeContainer);
+
+    const dots = [];
+    const dotCount = 20;
+    for (let i = 0; i < dotCount; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'snake-dot';
+      snakeContainer.appendChild(dot);
+      dots.push({ el: dot, x: 0, y: 0 });
+    }
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateSnake() {
+      let x = mouseX, y = mouseY;
+      dots.forEach((dot, i) => {
+        dot.x += (x - dot.x) * 0.2;
+        dot.y += (y - dot.y) * 0.2;
+        dot.el.style.left = dot.x + 'px';
+        dot.el.style.top = dot.y + 'px';
+        dot.el.style.transform = `scale(${1 - i / dotCount})`;
+        x = dot.x;
+        y = dot.y;
+      });
+      requestAnimationFrame(animateSnake);
+    }
+    animateSnake();
   }
 
   // 🚦 ProgressBar Functionality
