@@ -276,6 +276,44 @@
     .navbar-link.shorter {
       width: 30px;
     }
+
+    /* Accordion style FAQs CSS */
+    .template-preview.faq-preview {
+      background: #e6f0ff;
+      /* same light blue as navbar preview */
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      height: 120px;
+      justify-content: center;
+    }
+
+    .faq-line {
+      height: 12px;
+      background: #4d90fe;
+      /* medium blue for FAQ lines */
+      border-radius: 6px;
+      opacity: 0.8;
+    }
+
+    .faq-line.long {
+      width: 80%;
+    }
+
+    .faq-line.medium {
+      width: 65%;
+    }
+
+    .faq-line.short {
+      width: 50%;
+    }
+
+    .faq-line.shorter {
+      width: 40%;
+    }
   </style>
 </head>
 
@@ -371,6 +409,18 @@
           <div class="navbar-link shorter"></div>
         </div>
         <a class="template-btn" href="templates/navbar.html">View Template</a>
+      </article>
+
+      <!-- Added FAQs Card -->
+      <article class="template-card">
+        <h2>Accordion Style FAQs Section</h2>
+        <div class="template-preview faq-preview">
+          <div class="faq-line long"></div>
+          <div class="faq-line medium"></div>
+          <div class="faq-line short"></div>
+          <div class="faq-line shorter"></div>
+        </div>
+        <a class="template-btn" href="templates/faq_acc.html">View Template</a>
       </article>
 
   </main>
