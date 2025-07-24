@@ -314,6 +314,35 @@
     .faq-line.shorter {
       width: 40%;
     }
+
+    /* CSS of newly added PRICE PLANS */
+    .template-preview.price-preview {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      /* Increased gap for more spacing */
+      height: 120px;
+      padding: 10px 15px;
+      background: #4f8cff;
+      ;
+      /* Light blue background */
+      border-radius: 8px;
+    }
+
+    /* Price Plan lines */
+    .price-line {
+      height: 12px;
+      background-color: white;
+      /* Darker blue */
+      border-radius: 6px;
+      opacity: 0.8;
+    }
+
+    /* Width variations */
+    .price-line.long {
+      width: 80px;
+      height: 60px;
+    }
   </style>
 </head>
 
@@ -422,6 +451,18 @@
         </div>
         <a class="template-btn" href="templates/faq_acc.html">View Template</a>
       </article>
+
+      <article class="template-card">
+        <h2>Price Plan Template</h2>
+        <div class="template-preview price-preview">
+          <div class="price-line long"></div>
+          <div class="price-line long"></div>
+          <div class="price-line long"></div>
+        </div>
+        <a class="template-btn" href="templates/price_plan.html">View Template</a>
+      </article>
+
+
 
   </main>
   <footer class="footer">
