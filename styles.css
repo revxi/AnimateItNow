@@ -205,6 +205,23 @@ body {
 .github-icon:focus svg path {
   fill: #0366d6;
 }
+#cursor-snake {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.snake-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #00d1ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00d1ff;
+}
+
 
 /* ProgressBar */
 #progress-bar {
@@ -251,6 +268,52 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Snake Cursor Toggle Switch */
+.nav-links .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.nav-links .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.nav-links .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #888;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.nav-links .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.nav-links .switch input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.nav-links .switch input:checked + .slider:before {
+  transform: translateX(18px);
 }
 
 /* Landing Section */
@@ -650,6 +713,10 @@ body.dark .landing-section p {
   opacity: 1;
 }
 
+.dark .footer{
+  background: linear-gradient(to right, #061a1c, #2a2a2a);
+  color: #f0f0f0;
+}
 /* Preview styles */
 .login-preview {
   background: linear-gradient(135deg, #4f8cff 60%, #e0e7ff 100%);
@@ -1065,7 +1132,8 @@ body.dark .form-group textarea {
 }
 
 body.dark .contact-main h1 {
-  color: #ffffff;
+  color: #8aadf4;
+  text-shadow: 0 0 5px rgba(138, 173, 244, 0.3);
 }
 
 body.dark .navbar {

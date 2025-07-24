@@ -90,4 +90,10 @@ For questions, suggestions, or collaboration, reach out via [LinkedIn](https://w
 
 ---
 
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
 Made with ❤️ by Anuj and Contributors
