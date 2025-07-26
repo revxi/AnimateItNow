@@ -2019,8 +2019,8 @@ body.dark .glow-wrap::before {
     align-items: center;
     min-height: 120px;
     margin-bottom: 20px;
-}
-
+} 
+ 
 /* This targets the button inside the preview */
 .tooltip-preview .tooltip {
     padding: 8px 16px;
@@ -2029,8 +2029,8 @@ body.dark .glow-wrap::before {
     background-color: #64b5f6; /* Correct blue button color */
     color: white;
     font-size: 1rem;
-    cursor: pointer;
-}
+    cursor: pointer; 
+}   
 .faq-question-header {
   cursor: pointer; 
 }
