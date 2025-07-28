@@ -126,7 +126,7 @@
     }
     /* 🔧 Template card container */
     body.dark .template-card {
-      background: rgba(30, 41, 59, 0.6); 
+      background-color: rgba(30, 41, 59, 0.6); 
      border: 1px solid rgba(59, 130, 246, 0.15);
         box-shadow:
     0 0 6px rgba(59, 130, 246, 0.25),
@@ -322,7 +322,7 @@
     }
   </style>
 </head>
-<body class="darl">
+<body class="dark">
   <nav class="navbar scroll-fade">
     <div class="nav-left">
       <img src="images/logo.png" alt="AnimateItNow Logo" class="logo" />
@@ -330,9 +330,10 @@
     </div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="templates.html">Templates</a></li>
+        <!-- template class must be active when we click on it -->
+        <li><a href="templates.html" class="active">Templates</a></li>
         <li><a href="contributors.html">Contributors</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>
