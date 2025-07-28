@@ -279,3 +279,5 @@ window.addEventListener("DOMContentLoaded", () => {
   // Initialize on load
   updateProgressBar()
 })
+
+
