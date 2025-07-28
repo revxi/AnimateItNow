@@ -409,6 +409,14 @@
         <div class="template-preview loader-preview"></div>
         <button class="template-btn">View Template</button>
       </a>
+      <!-- aading texts effects -->
+       <a class="template-card" >
+        <h2>Text Animation Effects</h2>
+        <div class="template-preview text-preview">
+          <h2 id="textTarget"></h2>
+        </div>
+        <button class="template-btn">View Template</button>
+       </a>
       <a class="template-card" href="templates/modal.html">
         <h2>Popup Templates</h2>
         <div class="template-preview modal-preview"></div>
@@ -587,6 +595,49 @@
       });
     }
     searchBar.addEventListener('input', filterTemplates);
+
+    //script for animation type one after other
+    const texts = ["Typing Animation", "Gradient Text", "Neon Glow" ,"Wavy Text Animation" ,"Zoom on Hover"];
+
+    let currTextIdx = 0; // Index of current string in the array
+    let charIdx = 0 ; // index of current char currently being typed /deleted
+    let isDelete = false;
+
+    const speed = 100; //type/delete speed
+    const pausTime  = 1000; //pause time
+    const target = document.getElementById('textTarget');
+
+    function typeLoop(){
+      const currentText = texts[currTextIdx];
+
+      if(isDelete){
+        target.textContent = currentText.substring(0 , charIdx--);
+      }else{
+        target.textContent = currentText.substring(0 , charIdx++);
+      }
+
+      //typed full character
+      if(!isDelete && charIdx === currentText.length + 1){
+        setTimeout(() => {
+          isDelete = true;
+          typeLoop();
+        }, pausTime);
+        return;
+      }
+
+      //move to next char when deleted
+      if(isDelete && charIdx === 0){
+        isDelete = false;
+        //use modulo so that it can reback at 0
+        currTextIdx = (currTextIdx + 1 ) % texts.length ;
+      }
+
+      // Deleting is faster (half the speed)
+      // Typing is slower
+      setTimeout(typeLoop , isDelete ? speed / 2 : speed);
+    }
+    typeLoop() // start animation
+
   </script>
   <!-- PWA Support -->
   <script src="pwa.js"></script>

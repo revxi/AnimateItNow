@@ -1127,7 +1127,8 @@ body:not(.dark) .template-card {
 }
 
 .template-preview {
-  width: 140px;
+  /* to make text animation good */
+  min-width: 140px; 
   height: 90px;
   border-radius: 0.8rem;
   margin-bottom: 1.2rem;
@@ -1240,6 +1241,16 @@ body:not(.dark) .template-card {
     transform: rotate(360deg);
   }
 }
+
+/* text effects */
+.text-preview{
+  min-width: 12ch; 
+  white-space: nowrap;
+  overflow: hidden; 
+  width: fit-content; 
+  background: linear-gradient(135deg, #4f8cff 60%, #e0e7ff 100%);
+} 
+ 
 
 .modal-preview {
   background: var(--light);
