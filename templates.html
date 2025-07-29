@@ -912,8 +912,7 @@
           target.textContent = currentText.substring(0, charIdx--);
         } else {
           target.textContent = currentText.substring(0, charIdx++);
-        }
-
+        } 
         //typed full character
         if (!isDelete && charIdx === currentText.length + 1) {
           setTimeout(() => {
@@ -1142,9 +1141,11 @@
         }
       }
 
-      // end game animation
-    </script>
-    <!-- PWA Support -->
-    <script src="pwa.js"></script>
-  </body>
+      // end game animation  
+    searchBar.addEventListener('input', filterTemplates);
+  </script>
+  <!-- PWA Support -->
+  <script src="pwa.js"></script>
+</body>
+ 
 </html>
