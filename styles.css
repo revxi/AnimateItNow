@@ -1075,7 +1075,8 @@ body.dark .landing-section p {
   letter-spacing: 1px;
   animation: fadeIn 1s ease-in-out;
 background: linear-gradient(to right, #34d399, #3b82f6);
-
+background-clip: text;
+-webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 5px rgba(59, 130, 246, 0.15);
 }
@@ -1506,8 +1507,8 @@ body.dark .contributor-card:hover {
   font-weight: 800;
   text-align: center;
   background: linear-gradient(to right, red,blue);
-  color: transparent;
-
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15),
                0 4px 8px rgba(79, 140, 255, 0.25);
   margin-bottom: 1.5rem;
@@ -1643,14 +1644,13 @@ body.dark .nav-links a {
 
 body.dark .contact-main h1 {
   /* color: #8aadf4; */
-  background: linear-gradient(to right, rgb(80, 12, 80),rgb(143, 220, 160));
-  color: transparent;
-  /* -webkit-background-clip: text; */
+  background: linear-gradient(to right, #67e8f9, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-shadow:
   0 0 4px rgba(138, 180, 248, 0.4),  
   0 0 10px rgba(138, 180, 248, 0.2),  
   0 0 20px rgba(138, 180, 248, 0.1);  
-
 }
 
 body.dark .animated-btn-section h1 {
