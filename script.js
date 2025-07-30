@@ -1,3 +1,16 @@
+// Function for displaying FAQ categories
+function displaycategory(category){
+  const general=document.getElementById('general-faq');
+  const technical=document.getElementById('technical-faq');
+  if(category==='general'){
+    general.style.display='block';
+    technical.style.display='none';
+  }
+  else if(category==='technical'){
+    general.style.display='none';
+    technical.style.display='block';
+  }
+}
 // Function to make the FAQ collapsible
 function toggleFAQ(element) {
   if (!document.querySelector(".faq-item")) return
