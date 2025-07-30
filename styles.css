@@ -2193,6 +2193,25 @@ body.dark .template-card h2 {
   color: #f3f3f3;
 }
 /* ───────── STATIC FAQ SECTION ───────── */
+.faq-btn {
+  padding: 0.7rem 1.5rem;
+  margin: 1rem 1rem 1rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+.faq-btn:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.18);
+}
 .faq-section {
   padding: 4rem 2rem;
   max-width: 1200px;
@@ -2244,6 +2263,7 @@ body.dark .template-card h2 {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
+  margin-bottom: 1.6rem; /*add space between items */
 }
 .faq-item:hover {
   transform: translateY(-3px);
@@ -2368,6 +2388,15 @@ body.dark .glow-wrap::before {
 
 /* responsive */
 @media (max-width: 768px) {
+ .faq-btn {
+    padding: 0.5rem 1rem;
+    font-size:1rem;
+    cursor: pointer;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
   .faq-section {
     padding: 2rem 1rem;
   }
@@ -2380,6 +2409,7 @@ body.dark .glow-wrap::before {
   .faq-answer-content {
     padding: 1.5rem;
   }
+  
 }
 
 .contact-form {
