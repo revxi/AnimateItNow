@@ -522,8 +522,20 @@
     0 0 6px rgba(59, 130, 246, 0.25),
     0 0 12px rgba(56, 189, 248, 0.3);
       color: #ffffff;
-      animation: darkNeonPulse 4s ease-in-out infinite; 
+      /* animation: darkNeonPulse 4s ease-in-out infinite;  */
     }
+    body.dark .template-card:hover{
+      transition: transform 0.3s ease;
+       transform: scale(1.1);
+    }
+
+    .template-card {
+     transition: transform 0.3s ease;
+    }
+
+.template-card:hover {
+  transform: scale(1.1); 
+}
     /* 🖋 Titles inside cards */
     body.dark .template-card h2 {
       color: #ffffff;
