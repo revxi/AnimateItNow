@@ -2224,7 +2224,7 @@ body.dark .template-card h2 {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
-  margin-bottom: 1.5rem; /*add space between items */
+  margin-bottom: 1.6rem; /*add space between items */
 }
 .faq-item:hover {
   transform: translateY(-3px);
