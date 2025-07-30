@@ -6,31 +6,7 @@
   <title>Templates | AnimateItNow</title>
   <meta name="description" content="A comprehensive collection of CSS animation templates and effects for web developers" />
   
-  <!-- PWA Meta Tags -->
-  <meta name="theme-color" content="#ff6b6b" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="AnimateItNow" />
-  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png" />
-  <meta name="msapplication-TileColor" content="#ff6b6b" />
-  
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json" />
-  
-  <!-- PWA Icons -->
-  <link rel="icon" type="image/png" sizes="72x72" href="images/icons/icon-72x72.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="images/icons/icon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="128x128" href="images/icons/icon-128x128.png" />
-  <link rel="icon" type="image/png" sizes="144x144" href="images/icons/icon-144x144.png" />
-  <link rel="icon" type="image/png" sizes="152x152" href="images/icons/icon-152x152.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="images/icons/icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="384x384" href="images/icons/icon-384x384.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="images/icons/icon-512x512.png" />
-  
   <!-- Apple Touch Icons -->
-  <link rel="apple-touch-icon" sizes="152x152" href="images/icons/icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="192x192" href="images/icons/icon-192x192.png" />
-  
   <!-- Fallback icon -->
   <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -39,21 +15,304 @@
   
   <style>
     /*  Removed conflicting navbar CSS, relying on styles.css */
-    .navbar {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-    }
-    .nav-right {
-      display: flex;
-      gap: 1.5rem;
-    }
-    a {
-      text-decoration: none;
-    }
+ .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: rgba(2, 13, 47);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Left Logo Section */
+.nav-left {
+  display: flex;
+  align-items: center;
+  width: 25ch;
+  position: relative;
+  gap: 12px;
+  color:#00d1ff
+}
+
+.logo {
+  height: 36px;
+  width: 36px;
+  animation: pulse 2s infinite;
+}
+.site-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-right: 2px solid var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  /* Add animation in website Name */
+  animation: typing 3s steps(14) 1s infinite,
+    blink 0.6s infinite step-end alternate;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 14ch;
+  }
+  70% {
+    width: 14ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* .site-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #1b1717;
+  animation: fadeInLeft 0.8s ease;
+}  */
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--nav-text-60);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 10px;
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #3f5efb, #9f5de2, #ff6ec4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.nav-links a::after {
+  content: '';
+    position: absolute;
+    left: 8px;
+    bottom:3px;
+    width: 84%;
+    height: 1px;
+    background: #fff;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-links a.active {
+ text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  color: var(--nav-text);
+  font-size: 1.1rem;
+}
+
+.github-icon svg {
+  fill: #ffffff;
+  margin-top: 4px;
+  transition: fill 0.3s ease;
+}
+
+.github-icon:hover svg {
+  fill: #24292e; /* GitHub Original colour on hover */
+}
+
+@media (prefers-color-scheme: dark) {
+  .github-icon svg path {
+    fill: #ffffff;
+  }
+}
+
+
+#cursor-snake {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.snake-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #00d1ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00d1ff;
+}
+
+/*Snake toggle */
+
+.snakeList{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px;
+}
+
+.snakeLabel{
+  color: var(--nav-text-60);
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.snakeList:hover .snakeLabel {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #3f5efb, #9f5de2, #ff6ec4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ProgressBar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 0.4rem;
+  background: linear-gradient(135deg, #3f5efb, #9f5de2, #ff6ec4);
+  z-index: 9999;
+}
+
+/* Theme Toggle */
+#theme-toggle {
+  margin-top: 6px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+#theme-toggle.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+#theme-toggle.btn-press:active {
+  transform: scale(0.9);
+}
+
+#theme-toggle:hover {
+  transform: rotate(20deg) scale(1.2);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Snake Cursor Toggle Switch */
+.nav-links .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.nav-links .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.nav-links .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #888;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.nav-links .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.nav-links .switch input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.nav-links .switch input:checked + .slider:before {
+  transform: translateX(18px);
+}
+.fade-in span{
+  color: #00d1ff;
+}
     /* 🌒 DARK MODE GLOBAL TEXT FIXES */
     /*  Changed 'dark-theme' to 'dark' to match script.js and other pages */
     body.dark {
@@ -66,10 +325,139 @@
     /* ✅ Heading fix */
     body.dark .templates-main h1 {
        background: linear-gradient(to right, #67e8f9, #3b82f6); /* bright neon cyan-blue */
-       /* -webkit-background-clip: text; */
+       -webkit-background-clip:text;
+       background-clip: text;
        -webkit-text-fill-color: transparent;
         text-shadow: 0 2px 10px rgba(56, 189, 248, 0.4);
     }
+    .templates-main h1 {
+  background: linear-gradient(to right, #67e8f9, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(56, 189, 248, 0.4);
+}
+
+@media only screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .left h1 {
+        font-size: 2rem;
+    }
+
+    .left p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .right img {
+        max-width: 85%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .left h1 {
+        font-size: 1.5rem;
+    }
+
+    .left p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+
+    nav ul {
+        gap: 8px;
+    }
+
+    .right img {
+        max-width: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-left {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .templates-main {
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .templates-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .templates-main h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .nav-left {
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-links {
+    /* Remove stacking */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .site-name {
+    font-size: 1rem;
+  }
+}
+
     /* ✅ Template card titles */
     body.dark .template-card h2 {
       color: #e0f2fe;
@@ -325,21 +713,25 @@
   </style>
 </head>
 <body class="dark">
+  <!-- ───────── NAVBAR ───────── -->
   <nav class="navbar scroll-fade">
     <div class="nav-left">
       <img src="images/logo.png" alt="AnimateItNow Logo" class="logo" />
       <span class="site-name">Animate It Now</span>
     </div>
+
     <div class="nav-right">
       <ul class="nav-links">
+        <!-- remove active from Home -->
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <!-- template class must be active when we click on it -->
-        <li><a href="templates.html" class="active">Templates</a></li>
+        <!-- make active to About as you are in about -->
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="templates.html">Templates</a></li>
         <li><a href="contributors.html">Contributors</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>
         <!-- cursor toggle switch -->
+         
         <li class="snakeList">
           <label class="switch" title="Toggle Snake Cursor">
             <input type="checkbox" id="cursorToggle">
@@ -350,13 +742,13 @@
         <!-- github icon -->
         <li>
           <a href="https://github.com/itsAnimation/AnimateItNow"
-             target="_blank"
-             rel="noopener noreferrer"
+             target="_blank" 
+             rel="noopener noreferrer" 
              aria-label="GitHub Repo"
              class="github-icon">
             <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
-                 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 
+                7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49
                 -2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
                 -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82
                .72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
@@ -590,8 +982,6 @@
     }
     searchBar.addEventListener('input', filterTemplates);
   </script>
-  <!-- PWA Support -->
-  <script src="pwa.js"></script>
-</body>
+  </body>
 
 </html>
