@@ -598,6 +598,9 @@
     </div>
   </nav>
 
+
+  
+
   <!--Main leaderboard container with NO background to let page background show -->
   <div class="leaderboard-container">
     <div class="glass-heading">
@@ -968,6 +971,23 @@
   <!--Required scripts for icons and functionality -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
-  </body>
 
+  <!-- PWA Support -->
+  <script src="pwa.js"></script>
+
+// Confetti effect on page load
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    window.onload = function () {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 },
+      });
+    };
+  </script>
+  
+</body>
+<button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
 </html>
