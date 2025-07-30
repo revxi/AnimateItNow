@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | AnimateItNow</title>
+  <meta name="description" content="A comprehensive collection of CSS animation templates and effects for web developers" />
+  
+  <!-- Apple Touch Icons -->
+  <!-- Fallback icon -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
@@ -17,17 +22,22 @@
 
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <!-- remove active from Home -->
+        <li><a href="index.html">Home</a></li>
+        <!-- make active to About as you are in about -->
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="templates.html">Templates</a></li>
         <li><a href="contributors.html">Contributors</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
         <!-- cursor toggle switch -->
-        <li>
+         
+        <li class="snakeList">
           <label class="switch" title="Toggle Snake Cursor">
             <input type="checkbox" id="cursorToggle">
             <span class="slider round"></span>
           </label>
+          <span class="snakeLabel">Snake Cursor</span>
         </li>
         <!-- github icon -->
         <li>
@@ -120,6 +130,27 @@
       </div>
     </section>
 
+    <section class="about-section scroll-fade">
+      <div class="about-icon">🚀</div>
+      <div class="about-content">
+        <h2>Why Choose <span>AnimateItNow?</span></h2>
+        <div class="about-audience">
+          <div class="about-audience-item">
+            <h3>Super Fast Templates</h3>
+            <p>Pre-built animations ready to use in seconds.</p>
+          </div>
+          <div class="about-audience-item">
+            <h3> Beginner Friendly</h3>
+            <p>Learn with simple, well-documented examples.</p>
+          </div>
+          <div class="about-audience-item">
+            <h3>Modern UI Components</h3>
+            <p>Designed to inspire and speed up your workflow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="about-cta scale-in">
       <h2>Ready to contribute?</h2>
       <p>Join our open-source community!</p>
@@ -137,8 +168,10 @@
         <h4>Connect With Us</h4>
         <ul>
           <li><a href="https://github.com/itsAnimation/AnimateItNow" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-beat"></i> GitHub</a></li> 
+
           <li><a href="https://www.linkedin.com/in/anujshrivastava1/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-beat"></i> LinkedIn</a></li>
-          <li><a href="mailto:contact@animateitnow.com" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email Us</a></li>
+          
+          <li><a href="mailto:contact@animateitnow.com" rel="noopener noreferrer"><i class="fas fa-envelope fa-beat"></i> Email Us</a></li>
         </ul>
       </div>
     </div>
@@ -147,22 +180,21 @@
     </div>
   </footer>
   <div id="cursor-snake"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-  <script>
-    // Dark mode toggle functionality for about.html
+<script>
+    // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
     function setTheme(isDark) {
       const newIcon = isDark ? 'sun' : 'moon';
-      body.classList.toggle('dark', isDark);
+      body.classList.toggle('dark-theme', isDark);
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
+      
       if (themeToggle) {
         themeToggle.innerHTML = `<i data-lucide="${newIcon}"></i>`;
-        if (window.lucide) {
-          lucide.createIcons();
-        }
+        lucide.createIcons();
       }
     }
 
@@ -171,7 +203,8 @@
     setTheme(savedTheme === 'dark' || (savedTheme === null && prefersDark));
 
     themeToggle?.addEventListener('click', () => {
-      setTheme(!body.classList.contains('dark'));
+      setTheme(!body.classList.contains('dark-theme'));
+      
     });
 
     // Load lucide icons after DOM is ready
@@ -182,5 +215,8 @@
     });
   </script>
   <script src="script.js"></script>
-</body>
+  </body>
+
+<button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
+
 </html>

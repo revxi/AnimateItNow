@@ -5,10 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AnimateItNow</title>
-
-  <!-- styles & icons -->
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="A comprehensive collection of CSS animation templates and effects for web developers" />
+  
+  <!-- Fallback icon -->
   <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- styles & external resources -->
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
@@ -30,16 +33,18 @@
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="editor.html" target="blank">Editor</a></li>
         <li><a href="templates.html">Templates</a></li>
         <li><a href="contributors.html">Contributors</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>  <!--leaderboard linkup> -->
         <!-- cursor toggle switch -->
-        <li>
+        <li class="snakeList">
           <label class="switch" title="Toggle Snake Cursor">
             <input type="checkbox" id="cursorToggle">
             <span class="slider round"></span>
           </label>
+          <span class="snakeLabel">Snake Cursor</span>
         </li>
         <!-- github icon -->
         <li>
@@ -57,9 +62,10 @@
             </svg>
           </a>
         </li>
-        <li><button id="theme-toggle" aria-label="Toggle Theme">
+        <li><button id="theme-toggle" class="ripple btn-press" aria-label="Toggle Theme">
               <i data-lucide="moon"></i>
             </button>
+            
         </li>
       </ul>
     </div>
@@ -67,7 +73,7 @@
 
   <!-- ───────── HERO ───────── -->
   <header class="landing-section">
-    <h1 class="fade-in">Welcome to <span>AnimateItNow</span></h1>
+    <h1 class="fade-in" id="modify">Welcome to <span>AnimateItNow</span></h1>
     <h2 class="fade-in delay-1">
       A creative space where contributors build beautiful web components.
     </h2>
@@ -76,10 +82,10 @@
       discovering stunning web UI components. Join us to contribute, learn,
       and inspire others!
     </p>
-    <a href="#faq" class="cta-btn bounce"
-      onclick="event.preventDefault(); const el = document.getElementById('faq'); window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });">
-      Get Started
-    </a>
+    <a href="#faq" class="cta-btn bounce ripple btn-press"
+   onclick="event.preventDefault(); const el = document.getElementById('faq'); window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });">
+   Get Started
+</a>
 
   </header>
 
@@ -190,8 +196,6 @@
 
           <!-- 9 -->
           <div class="faq-item glow-wrap">
-            <div class="faq-question-header">
-           <div class="faq-item glow-wrap">
             <div class="faq-question-header" onclick="toggleFAQ(this)">
               <h3>Is AnimateItNow responsive on all devices?</h3>
               <div class="faq-icon-static"><i class="fa-solid fa-mobile-screen"></i></div>
@@ -201,6 +205,8 @@
                 component breaks on smaller screens.</p>
             </div>
           </div>
+        
+
           
 
           <!-- 10 -->
@@ -221,7 +227,7 @@
       <div class="container">
         <div class="testi">
           <div class="head">
-            <h3>Testmonials</h3>
+            <h3>Testimonials</h3>
             <p>See What People are saying...</p>
           </div>
           <div class="body swiper">
@@ -229,7 +235,7 @@
               <li class="swiper-slide">
                 <div class="wrapper">
                   <div class="thumbnail">
-                    <img src="images/user1.jpg" alt="">
+                    <img src="images/img1.jpg" alt="">
                   </div>
                   <div class="aside">
                     <p>AnimateItNow turned our static UI into something delightful. The ease of integration is mind-blowing</p>
@@ -243,7 +249,7 @@
               <li class="swiper-slide">
                 <div class="wrapper">
                   <div class="thumbnail">
-                    <img src="images/user2.jpg" alt="">
+                    <img src="images/img2.jpg" alt="">
                   </div>
                   <div class="aside">
                     <p>It’s the fastest way I’ve ever added beautiful animations to a site. My clients love the results!</p>
@@ -257,7 +263,7 @@
               <li class="swiper-slide">
                 <div class="wrapper">
                   <div class="thumbnail">
-                    <img src="images/user3.jpg" alt="">
+                    <img src="images/img3.jpg" alt="">
                   </div>
                   <div class="aside">
                     <p>Animations were once a pain. Now with AnimateItNow, it feels like magic with every scroll!</p>
@@ -271,7 +277,7 @@
               <li class="swiper-slide">
                 <div class="wrapper">
                   <div class="thumbnail">
-                    <img src="images/user4.jpg" alt="">
+                    <img src="images/img4.jpg" alt="">
                   </div>
                   <div class="aside">
                     <p>The lightweight design and modularity of AnimateItNow makes it perfect for modern frontend teams.</p>
@@ -285,7 +291,7 @@
               <li class="swiper-slide">
                 <div class="wrapper">
                   <div class="thumbnail">
-                    <img src="images/user5.jpg" alt="">
+                    <img src="images/img5.jpg" alt="">
                   </div>
                   <div class="aside">
                     <p>I use AnimateItNow in every prototype I deliver. It brings life to design without slowing things down.</p>
@@ -299,7 +305,7 @@
               <li class="swiper-slide">
                 <div class="wrapper">
                   <div class="thumbnail">
-                    <img src="images/user6.jpg" alt="">
+                    <img src="images/img6.jpg" alt="">
                   </div>
                   <div class="aside">
                     <p>It blends so seamlessly with Tailwind and modern frameworks. A must-have for every frontend dev!</p>
@@ -351,9 +357,15 @@
         <h4>Connect With Us</h4>
         <ul>
           <li class="github"><a href="https://github.com/itsAnimation/AnimateItNow" target="_blank"><i class="fab fa-github fa-beat"></i> GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/anujshrivastava1/" target="_blank"><i class="fab fa-linkedin fa-beat"></i> LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/anujshrivastava1/" target="_blank"><i class="fab fa-linkedin fa-beat"></i> LinkedIn</a></li> 
+          <!-- fa-beat class added in email for animation -->
+          <li>
+  <a href="https://mail.google.com/mail/?view=cm&to=contact@animateitnow.com" target="_blank">
+    <i class="fas fa-envelope fa-beat"></i> Email Us
+  </a>
+</li>
 
-          <li><a href="mailto:contact@animateitnow.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+
         </ul>
       </div>
     </div>
@@ -368,5 +380,5 @@
 
   <script src="script.js"></script>
 </body>
-
+<button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
 </html>
