@@ -2113,6 +2113,7 @@ body.dark .template-card h2 {
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  display: inline-block;
 }
 .faq-btn:hover {
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
@@ -2170,6 +2171,7 @@ body.dark .template-card h2 {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
+  margin-bottom: 1.2rem; /*add space between items */
 }
 .faq-item:hover {
   transform: translateY(-3px);
@@ -2289,10 +2291,14 @@ body.dark .glow-wrap::before {
 
 /* responsive */
 @media (max-width: 768px) {
-  .faq-btn{
+ .faq-btn {
     padding: 0.5rem 1rem;
-    margin: 0.5rem 0.3rem;
-    font-size: 1rem;
+    font-size:1rem;
+    cursor: pointer;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
   }
   .faq-section {
     padding: 2rem 1rem;
