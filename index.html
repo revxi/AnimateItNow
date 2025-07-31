@@ -23,7 +23,7 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
-
+    
     <!-- PWA Icons -->
     <link
       rel="icon"
@@ -85,6 +85,73 @@
       sizes="192x192"
       href="images/logo.png"
     />
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+      padding: 30px;
+    }
+
+    .animate {
+      display: inline-block;
+      margin: 30px;
+      font-size: 100px;
+      animation-fill-mode: both;
+    }
+
+    /* ✅ All Animations */
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(0.5); }
+      100% { transform: scale(1.2); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-50px); }
+    }
+
+    @keyframes slideLinear {
+      0% { transform: translateX(-200px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes combo {
+      0%   { transform: scale(0.5) rotate(0deg); opacity: 0; }
+      50%  { transform: scale(1.2) rotate(180deg); opacity: 1; }
+      70%  { transform: scale(0.9) rotate(270deg); }
+      100% { transform: scale(1) rotate(360deg); }
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e7e34;
+    }
+
+  </style>
 
     <!-- Fallback icon -->
     <link rel="icon" type="image/png" href="images/logo.png" />
@@ -188,7 +255,29 @@
         Get Started
       </a>
     </header>   
-   
+   <h1 style="font-size: 60px;">🎯 Animate the UFO!</h1>
+
+
+  <div id="animatedObject" class="animate" style="font-size: 200px; margin: 30px;">
+    🛸
+  </div>
+
+<div>
+    <input id="speedInput" type="number" placeholder="Speed (e.g. 2)">
+    <input id="delayInput" type="number" placeholder="Delay (e.g. 0.5)">
+    <input id="repeatInput" type="text" placeholder="Repeat (e.g. 1, 2, infinite)">
+    <br>
+    <select id="animationSelect">
+      <option value="rotate">Rotate</option>
+      <option value="zoom">Zoom</option>
+      <option value="bounce">Bounce</option>
+      <option value="slideLinear">Linear Slide</option>
+      <option value="fade">Fade</option>
+      <option value="combo">Combo (Rotate+Zoom+Bounce)</option>
+    </select>
+    <button onclick="applyAnimation()">Apply Animation</button>
+  </div>
+ 
     <!-- ───────── MAIN─────── -->
     <main>
         <!-- ─────── OUR SINGLE STATIC FAQ ─────── -->
@@ -518,6 +607,27 @@
     <!-- <script src="pwa.js"></script> Removed: file not found -->
 
   <script src="script.js"></script>
+  <script>
+    function applyAnimation() {
+      const speed = Math.min(parseFloat(document.getElementById("speedInput").value) || 1, 10);
+      const delay = Math.min(parseFloat(document.getElementById("delayInput").value) || 0, 5);
+      let repeatRaw = document.getElementById("repeatInput").value.trim().toLowerCase();
+      let repeat = (repeatRaw === "infinite") ? "infinite" : Math.min(parseInt(repeatRaw) || 1, 20);
+      const animationType = document.getElementById("animationSelect").value;
+
+      const object = document.getElementById("animatedObject");
+
+      // Reset
+      object.style.animation = "none";
+      object.offsetHeight; // force reflow
+      object.classList.remove("animate");
+
+      // Apply new
+      object.classList.add("animate");
+      object.style.animation = `${animationType} ${speed}s ease-in-out ${delay}s ${repeat}`;
+    }
+  </script>
+
 </body>
 <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button> 
 </html>
