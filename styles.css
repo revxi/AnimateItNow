@@ -1520,6 +1520,7 @@ body:not(.dark) .contributor-card {
 .contributor-card h3 {
   background: linear-gradient(90deg, #0099F7, #F11712); /* Blue to orange flame */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -1529,6 +1530,7 @@ body:not(.dark) .contributor-card {
 .contributors-main h1{
   background: linear-gradient(90deg, #3ed8ff, #7f6bff, #fca5f1);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 10px rgba(126, 211, 247, 0.3);
 }
@@ -1591,6 +1593,7 @@ body.dark .contributor-card:hover {
   color: transparent; 
  
  -webkit-background-clip: text;
+  background-clip: text;
  -webkit-text-fill-color: transparent;  
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15),
                0 4px 8px rgba(79, 140, 255, 0.25);
@@ -1738,6 +1741,7 @@ body.dark .contact-main h1 {
   /* color: #8aadf4; */
   background: linear-gradient(to right, #67e8f9, #3b82f6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
   0 0 4px rgba(138, 180, 248, 0.4),  
@@ -1749,6 +1753,7 @@ body.dark .contact-main h1 {
   background: linear-gradient(to right, rgb(80, 12, 80), rgb(143, 220, 160));
   color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   text-shadow:
     0 0 4px rgba(138, 180, 248, 0.4),  
     0 0 10px rgba(138, 180, 248, 0.2),  
