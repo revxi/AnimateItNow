@@ -2946,6 +2946,71 @@ body.dark .playground-main h1{
 #scrollBtn:hover {
   background-color: #555; /* Darker on hover */
 }
+.animation-gallery {
+  padding: 2rem;
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.animation-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.animation-card {
+  background: #1e1e2f;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.animation-card:hover {
+  transform: translateY(-5px);
+}
+
+.animation-preview {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  background-color: #ff4081;
+  border-radius: 50%;
+}
+
+/* Bounce animation only plays on hover */
+.animation-card:hover .box {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animation-name {
+  margin-top: 1rem;
+  color: white;
+  font-weight: bold;
+}
 
 
 /* #search-bar::placeholder {
