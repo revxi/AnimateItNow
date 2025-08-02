@@ -99,6 +99,7 @@
 
     <style>
       /*  Removed conflicting navbar CSS, relying on styles.css */
+      
       .navbar {
         display: flex;
         flex-direction: row;
@@ -530,8 +531,40 @@
         margin-top: 1rem;
         font-weight: bold;
       }
+      
+      #search-bar {
+        width: 20em;
+        height: 2.5em;
+        padding-left: 0.8em;
+        color: #1f2937;
+        background-color: #67e8f9;
+        background-image: linear-gradient(to right, #67e8f9, #60a5fa);
+        border: 2px solid #67e8f9;
+        border-radius: 15px;
+        outline: none;
+        font-size: 1rem;
+        box-shadow: 0 6px 18px rgba(96, 165, 250, 0.25);
+        background-clip: padding-box;
+        transition:
+        background-color 0.3s ease-in-out,
+        background 0.3s ease-in-out,
+        border 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+      }
 
-      /* end for game animation */
+      #search-bar:hover,
+      #search-bar:focus {
+        background: white;
+        background-image: none;
+        border: 2px solid #4A9DEC;
+        box-shadow: 0 0 0 7px rgba(74, 157, 236, 0.2);
+      }
+      #search-bar::placeholder {
+        color: #2f61ad; 
+        opacity: 1;
+        font-style: italic;
+      }
+        /* end for game animation */
     </style>
   </head>
   <body class="dark">
@@ -601,7 +634,7 @@
       </div>
     </nav>
     <main class="templates-main">
-      <h1>Templates Gallery</h1>
+      <h1 style=" margin: 1rem auto 1rem auto;">Template Gallery</h1>
       <div
         style="display: flex; justify-content: center; margin-bottom: 1.5rem"
       >
@@ -609,17 +642,6 @@
           type="text"
           id="search-bar"
           placeholder="Search templates..."
-          style="
-            color: #1f2937;
-            padding: 0.6rem 1.2rem;
-            background: linear-gradient(to right, #67e8f9, #60a5fa);
-            box-shadow: 0 6px 18px rgba(96, 165, 250, 0.25);
-            border-radius: 18px;
-            border: 1px solid #ccc;
-            min-width: 420px;
-            font-size: 1rem;
-            outline: none;
-          "
           aria-label="Search templates"
         />
       </div>
