@@ -231,6 +231,11 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.navbar #theme-toggle {
+  color: #fff !important; /* Use white for better contrast */
+  opacity: 1;
+}
+
 /* Left Logo Section */
 .nav-left {
   display: flex;
@@ -340,7 +345,7 @@ body {
 .nav-links a.active {
  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
   font-weight: 700;
-  color: var(--nav-text);
+  color: #fff;
   font-size: 1.1rem;
 }
 
