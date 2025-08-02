@@ -71,6 +71,26 @@ function toggleFAQ(element) {
   faqItem.classList.toggle("active", !isActive)
 }
 
+
+
+//dynamically add the active or current class only to the tab that matches the current route or URL section.
+  window.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split("/").pop(); // e.g., about.html
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    navLinks.forEach(link => {
+      // Remove 'active' class from all
+      link.classList.remove("active");
+
+      // Add 'active' class to current page's link
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+
+
 // Make toggleFAQ globally accessible
 window.toggleFAQ = toggleFAQ
 
@@ -83,7 +103,16 @@ let snakeContainerElement = null // Keep a reference to the container element
 // The actual 'lucide' object is provided by the external script loaded in HTML.
 // Declaring it as 'const' here prevented the global 'lucide' from being used.
 
+
+document.querySelectorAll(".faq-toggle").forEach(button => {
+  button.addEventListener("click", () => toggleFAQ(button))
+})
+
+
+// Cursor Follower Snake Effect
+
 // Moved cursor functions outside DOMContentLoaded for better scope and reusability
+
 const isMobile = window.matchMedia("(max-width: 768px)").matches
 
 function enableSnakeCursor() {
