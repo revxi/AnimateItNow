@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Prism.js CSS and JS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
   <link rel="stylesheet" href="../styles.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../glassmorphismstyle.css" />
@@ -600,7 +605,7 @@
                 <button class="code-tab" onclick="switchTab('css')">CSS</button>
             </div>
             <div class="code-content" style="position:relative;">
-                <pre id="codeDisplay"></pre>
+                <pre id="codeDisplay"><code class="" id="codeLang"></code></pre>
             </div>
         </div>
     </div>
@@ -1335,21 +1340,31 @@ html: `<div class="outer">
         }
 
         function switchTab(tab) {
-            currentTab = tab;
-            const tabs = document.querySelectorAll('.code-tab');
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                if (t.textContent.toLowerCase() === tab) {
-                    t.classList.add('active');
-                }
-            });
-
-            const codeDisplay = document.getElementById('codeDisplay');
-            if (codeSnippets[currentDesign] && codeSnippets[currentDesign][tab]) {
-                codeDisplay.textContent = codeSnippets[currentDesign][tab];
-            }
-            addCopyBtnToModal();
+    currentTab = tab;
+    const tabs = document.querySelectorAll('.code-tab');
+    tabs.forEach(t => {
+        t.classList.remove('active');
+        if (t.textContent.toLowerCase() === tab) {
+            t.classList.add('active');
         }
+    });
+
+    const codeElem = document.getElementById('codeLang');
+    if (codeSnippets[currentDesign] && codeSnippets[currentDesign][tab]) {
+        // Set language class
+        codeElem.className = tab === 'css' ? 'language-css' : 'language-html';
+        // Escape HTML for HTML tab, not for CSS
+        if (tab === 'html') {
+            codeElem.innerHTML = codeSnippets[currentDesign][tab]
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        } else {
+            codeElem.textContent = codeSnippets[currentDesign][tab];
+        }
+        Prism.highlightElement(codeElem);
+    }
+    addCopyBtnToModal();
+}
 
         window.onclick = function (event) {
             const modal = document.getElementById('codeModal');

@@ -889,36 +889,34 @@
       document.querySelectorAll(".template-card").forEach((card) => {
         observer.observe(card);
       });
+// Search & Category Filter Functionality
+const searchBar = document.getElementById("search-bar");
+const templateCards = document.querySelectorAll(".template-card");
+const noResultsMsg = document.querySelector(".no-results"); // Added a "no results" div to your HTML
 
-      // Search & Category Filter Functionality
-      const searchBar = document.getElementById("search-bar");
-      const templateCards = document.querySelectorAll(".template-card");
-      const noResultsMsg = document.querySelector(".no-results"); // Added a "no results" div to your HTML
+function filterTemplates() {
+  const query = searchBar.value.trim().toLowerCase();
+  let visibleCount = 0;
 
-      function filterTemplates() {
-        const query = searchBar.value.trim().toLowerCase();
-        let visibleCount = 0;
+  templateCards.forEach((card) => {
+    const title = card
+      .querySelector("h2")
+      .textContent.trim()
+      .toLowerCase();
+    const matchesTitle = title.includes(query); // 'includes' is better than 'startsWith' for search
+    if (matchesTitle) {
+      card.style.display = "";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
 
-        templateCards.forEach((card) => {
-          const title = card
-            .querySelector("h2")
-            .textContent.trim()
-            .toLowerCase();
-          const matchesTitle = title.includes(query); // 'includes' is better than 'startsWith' for search
-          if (matchesTitle) {
-            card.style.display = "";
-            visibleCount++;
-          } else {
-            card.style.display = "none";
-          }
-        });
+  if (noResultsMsg) {
+    noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
 
-        if (noResultsMsg) {
-
-          noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-     
-      }
       searchBar.addEventListener("input", filterTemplates);
 
       //script for animation type one after other
