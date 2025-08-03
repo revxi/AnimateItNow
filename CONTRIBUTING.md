@@ -27,7 +27,7 @@ Head to the Github repository and hit the *fork* button on the top-right corner.
 Open your terminal and run the following command:
 
 bash
-git clone https://github.com/YOUR_USERNAME/AnimateItNow.git 
+git clone https://github.com/revxi/AnimateItNow.git 
 
 
 
